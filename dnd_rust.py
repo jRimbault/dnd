@@ -15,5 +15,5 @@ def roll_attributes(dices: int, skipped_dices: int, dice_type: int):
 
 print(*roll_attributes(5, 2, 6))
 
-p = dnd.roll_attributes(5, 2, 6).contents
-print(*[i for i in p])
+p = dnd.roll_attributes(5, 2, 6)
+print(*p.contents)
