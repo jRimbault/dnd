@@ -3,10 +3,11 @@
 4d6  : roll 4 6-sided dice, remove the lowest
 5d6  : roll 5 6-sided dice, remove the 2 lowest
 1d20 : roll 1 20-sided die
+2d20 : roll 2 20-sided die, remove the lowest
 """
 import argparse
 import random
-from typing import Sequence
+from typing import Iterator
 
 
 METHODS = {
@@ -14,6 +15,7 @@ METHODS = {
     "4d6": [4, 1, 6],
     "5d6": [5, 2, 6],
     "1d20": [1, 0, 20],
+    "2d20": [2, 1, 20],
 }
 
 ATTRIBUTES = [
@@ -36,7 +38,7 @@ def main(args):
     )
 
 
-def roll_attributes(dices: int, skipped_dices: int, dice_type: int) -> Sequence[int]:
+def roll_attributes(dices: int, skipped_dices: int, dice_type: int) -> Iterator[int]:
     yield from (roll_attribute(dices, skipped_dices, dice_type) for _ in range(6))
 
 
