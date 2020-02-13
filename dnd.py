@@ -1,22 +1,27 @@
-"""
-3d6  : roll 3 6-sided dice and add them up
-4d6  : roll 4 6-sided dice, remove the lowest
-5d6  : roll 5 6-sided dice, remove the 2 lowest
-1d20 : roll 1 20-sided die
-2d20 : roll 2 20-sided die, remove the lowest
-"""
 import argparse
 import random
+import textwrap
 from typing import Iterator
 
 
-METHODS = {
-    "3d6": [3, 0, 6],
-    "4d6": [4, 1, 6],
-    "5d6": [5, 2, 6],
-    "1d20": [1, 0, 20],
-    "2d20": [2, 1, 20],
-}
+def rolling_methods():
+    """
+    3d6  : roll 3 6-sided dice and add them up
+    4d6  : roll 4 6-sided dice, remove the lowest
+    5d6  : roll 5 6-sided dice, remove the 2 lowest
+    1d20 : roll 1 20-sided die
+    2d20 : roll 2 20-sided die, remove the lowest
+    """
+    return {
+        "3d6": [3, 0, 6],
+        "4d6": [4, 1, 6],
+        "5d6": [5, 2, 6],
+        "1d20": [1, 0, 20],
+        "2d20": [2, 1, 20],
+    }
+
+
+METHODS = rolling_methods()
 
 ATTRIBUTES = [
     "Strength",
@@ -50,7 +55,11 @@ def roll_attribute(dices: int, skipped_dices: int, dice_type: int) -> int:
 
 def parse_args():
     parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)
-    parser.add_argument("method", choices=METHODS.keys(), help=__doc__[1:])
+    parser.add_argument(
+        "method",
+        choices=METHODS.keys(),
+        help=textwrap.dedent(rolling_methods.__doc__).strip(),
+    )
     parser.add_argument(
         "--in-order",
         "-o",
