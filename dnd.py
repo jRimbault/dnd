@@ -1,3 +1,5 @@
+""" Script to quickly generate some classic TTRPG character's attributes """
+
 import argparse
 import random
 import textwrap
@@ -54,7 +56,9 @@ def roll_attribute(dices: int, skipped_dices: int, dice_type: int) -> int:
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)
+    parser = argparse.ArgumentParser(
+        formatter_class=argparse.RawTextHelpFormatter, description=__doc__.strip()
+    )
     parser.add_argument(
         "method",
         choices=METHODS.keys(),
