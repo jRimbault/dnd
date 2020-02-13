@@ -38,7 +38,10 @@ ATTRIBUTES = [
 def main(args):
     attributes = roll_attributes(*METHODS[args.method])
     print(
-        *(f"{name:<12} -> {value:>2}" for name, value in zip(ATTRIBUTES, attributes))
+        *(
+            f"{name:<{max(map(len, ATTRIBUTES))}} -> {value:>2}"
+            for name, value in zip(ATTRIBUTES, attributes)
+        )
         if args.in_order
         else map(str, attributes),
         sep="\n",
