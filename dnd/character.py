@@ -37,12 +37,18 @@ class Character:
         race: Optional[Race] = None,
         player_class: Optional[List[PlayerClass]] = None,
     ):
+        attributes = attributes if attributes else Attributes.random()
+        possible_classes = list(
+            filter(lambda c: c.requirements.possible(attributes), all_classes)
+        )
         return Character(
-            attributes if attributes else Attributes.random(),
+            attributes,
             race if race else random.choice(all_races),
             player_class
             if player_class
-            else random.sample(all_classes, random.randint(1, 3)),
+            else random.sample(
+                possible_classes, random.randint(1, min(len(possible_classes), 3))
+            ),
         )
 
 
