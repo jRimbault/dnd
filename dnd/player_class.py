@@ -9,3 +9,4 @@ class PlayerClass:
     hit_die: int
     primary_ability: typing.List[Attribute]
     saves: typing.List[Attribute]
+    level: int = 1
