@@ -16,12 +16,20 @@ class Character:
         self.race = race
         total_level = sum(c.level for c in player_class)
         self.level = CharacterLevel(total_level, proficiency_bonus(total_level))
-        self.player_class = player_class
+        self.player_class = sorted(player_class, key=lambda c: c.level, reverse=True)
         self.attributes = attributes + race.attributes_bonuses
         self.modifiers = self.attributes.modifiers()
 
     def __repr__(self):
-        return "\n".join(map(str, list(self.__dict__.values())))
+        return "\n".join(
+            [
+                str(self.race),
+                str(self.level),
+                "\n".join(map(str, self.player_class)),
+                str(self.attributes),
+                str(self.modifiers),
+            ]
+        )
 
     @staticmethod
     def random(
