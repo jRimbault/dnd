@@ -1,4 +1,5 @@
 import argparse
+import sys
 from . import races
 from . import classes
 from .attributes import Attributes
@@ -19,7 +20,7 @@ def main(args):
     print(Character.random(attributes=attributes, race=race, player_class=player_class))
 
 
-def parse_args():
+def parse_args(argv):
     parser = argparse.ArgumentParser()
     parser.add_argument("--race", "-r", choices=[race.name for race in races.all_races])
     parser.add_argument(
@@ -30,4 +31,4 @@ def parse_args():
 
 
 if __name__ == "__main__":
-    main(parse_args())
+    main(parse_args(sys.argv[1:]))
