@@ -1,4 +1,5 @@
 import random
+from typing import Optional
 from .attributes import Attributes
 from .classes import all_classes
 from .player_class import PlayerClass
@@ -16,7 +17,13 @@ class Character:
         return "\n".join(map(str, list(self.__dict__.values())))
 
     @staticmethod
-    def random():
+    def random(
+        attributes: Optional[Attributes] = None,
+        race: Optional[Race] = None,
+        player_class: Optional[PlayerClass] = None,
+    ):
         return Character(
-            Attributes.random(), random.choice(all_races), random.choice(all_classes),
+            attributes if attributes else Attributes.random(),
+            race if race else random.choice(all_races),
+            player_class if player_class else random.choice(all_classes),
         )
