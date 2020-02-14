@@ -1,3 +1,5 @@
 /target
 .mypy_cache/
 .venv/
+.vscode/
+.idea/

@@ -31,8 +31,25 @@ class Attributes:
             charisma=self.charisma + other.charisma,
         )
 
+    def modifiers(self):
+        def modifier(value: int) -> int:
+            return round((value - 10) / 2)
+
+        return Modifiers(
+            modifier(self.strengh),
+            modifier(self.constitution),
+            modifier(self.dexterity),
+            modifier(self.intelligence),
+            modifier(self.wisdom),
+            modifier(self.charisma),
+        )
+
     @staticmethod
     def random(dices: int = 4, skipped_dices: int = 1, dice_type: int = 6):
         return Attributes(
             *(roll_attribute(dices, skipped_dices, dice_type) for _ in range(6))
         )
+
+
+class Modifiers(Attributes):
+    pass

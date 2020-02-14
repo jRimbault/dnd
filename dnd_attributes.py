@@ -1,4 +1,4 @@
-""" Script to quickly generate some classic TTRPG character's attributes """
+"""Script to quickly generate some classic TTRPG character's attributes"""
 
 import argparse
 import random

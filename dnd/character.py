@@ -11,7 +11,8 @@ class Character:
     def __init__(self, attributes: Attributes, race: Race, player_class: PlayerClass):
         self.race = race
         self.player_class = player_class
-        self.attributes = attributes + race.modifiers
+        self.attributes = attributes + race.attributes_bonuses
+        self.modifiers = self.attributes.modifiers()
 
     def __repr__(self):
         return "\n".join(map(str, list(self.__dict__.values())))

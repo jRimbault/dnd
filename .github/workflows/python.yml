@@ -21,3 +21,6 @@ jobs:
     - name: Lint with black
       run: |
         black --check dnd dnd_attributes.py
+    - name: Type check with mypy
+      run: |
+        mypy dnd
