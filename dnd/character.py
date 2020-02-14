@@ -47,7 +47,7 @@ class Character:
 @dataclass
 class CharacterLevel:
     level: int
-    profiency_bonus: int
+    proficiency_bonus: int
 
 
 def proficiency_bonus(level: int):
