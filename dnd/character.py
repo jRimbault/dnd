@@ -40,7 +40,9 @@ class Character:
         return Character(
             attributes if attributes else Attributes.random(),
             race if race else random.choice(all_races),
-            player_class if player_class else random.sample(all_classes, random.randint(1, 3)),
+            player_class
+            if player_class
+            else random.sample(all_classes, random.randint(1, 3)),
         )
 
 

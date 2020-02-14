@@ -20,7 +20,10 @@ jobs:
         pip install -r requirements-dev.txt
     - name: Lint with black
       run: |
-        black --check dnd dnd_attributes.py
+        black --check dnd tests
     - name: Type check with mypy
       run: |
         mypy dnd
+    - name: Run tests with pytest
+      run: |
+        pytest
