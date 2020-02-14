@@ -6,5 +6,6 @@ from .languages import Languages
 
 @dataclass
 class Race:
+    name: str
     modifiers: Attributes
     languages: typing.List[Languages]

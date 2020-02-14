@@ -9,8 +9,8 @@ from .races import all_races
 class Character:
     def __init__(self, attributes: Attributes, race: Race, player_class: PlayerClass):
         self.race = race
-        self.attributes = attributes + race.modifiers
         self.player_class = player_class
+        self.attributes = attributes + race.modifiers
 
     def __repr__(self):
         return "\n".join(map(str, list(self.__dict__.values())))
