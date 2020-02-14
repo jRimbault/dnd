@@ -43,10 +43,10 @@ class ClassRequirements:
 
 
 @dataclass
-class PlayerClass:
+class Class:
     name: str
     hit_die: int
-    primary_ability: typing.List[Attribute]
-    saves: typing.List[Attribute]
+    primary_ability: typing.List[Attribute] = field(repr=False)
+    saves: typing.List[Attribute] = field(repr=False)
     requirements: ClassRequirements = field(repr=False)
     level: int = 1

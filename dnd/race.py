@@ -1,5 +1,5 @@
 import typing
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from .attributes import Attributes
 from .languages import Languages
 
@@ -7,5 +7,5 @@ from .languages import Languages
 @dataclass
 class Race:
     name: str
-    attributes_bonuses: Attributes
-    languages: typing.List[Languages]
+    bonuses: Attributes = field(repr=False)
+    languages: typing.List[Languages] = field(repr=False)

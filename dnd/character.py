@@ -4,20 +4,18 @@ from dataclasses import dataclass
 from typing import Optional, List
 from .attributes import Attributes
 from .classes import all_classes
-from .player_class import PlayerClass
+from .player_class import Class
 from .race import Race
 from .races import all_races
 
 
 class Character:
-    def __init__(
-        self, attributes: Attributes, race: Race, player_class: List[PlayerClass]
-    ):
+    def __init__(self, attributes: Attributes, race: Race, player_class: List[Class]):
         self.race = race
         total_level = sum(c.level for c in player_class)
-        self.level = CharacterLevel(total_level, proficiency_bonus(total_level))
+        self.level = CharacterLevel(total_level, proficiency(total_level))
         self.player_class = sorted(player_class, key=lambda c: c.level, reverse=True)
-        self.attributes = attributes + race.attributes_bonuses
+        self.attributes = attributes + race.bonuses
         self.modifiers = self.attributes.modifiers()
 
     def __repr__(self):
@@ -25,7 +23,7 @@ class Character:
             [
                 str(self.race),
                 str(self.level),
-                "\n".join(map(str, self.player_class)),
+                *[str(c) for c in self.player_class],
                 str(self.attributes),
                 str(self.modifiers),
             ]
@@ -35,7 +33,7 @@ class Character:
     def random(
         attributes: Optional[Attributes] = None,
         race: Optional[Race] = None,
-        player_class: Optional[List[PlayerClass]] = None,
+        player_class: Optional[List[Class]] = None,
     ):
         attributes = attributes if attributes else Attributes.random()
         possible_classes = list(
@@ -55,8 +53,8 @@ class Character:
 @dataclass
 class CharacterLevel:
     level: int
-    proficiency_bonus: int
+    proficiency: int
 
 
-def proficiency_bonus(level: int):
+def proficiency(level: int):
     return math.floor((7 + level) / 4)
