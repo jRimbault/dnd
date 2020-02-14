@@ -1,4 +1,4 @@
-/target
+tests-results/
 .mypy_cache/
 .venv/
 .vscode/
