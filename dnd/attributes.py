@@ -1,5 +1,15 @@
 from dataclasses import dataclass
+from enum import Enum
 from .random import roll_attribute
+
+
+class Attribute(Enum):
+    strengh = 0
+    constitution = 1
+    dexterity = 2
+    intelligence = 3
+    wisdom = 4
+    charisma = 6
 
 
 @dataclass

@@ -44,8 +44,5 @@ minotaur = Race(Attributes(strengh=2, constitution=1), [Languages.common])
 simic_hybrid = Race(Attributes(constitution=2), [Languages.common])
 vedalken = Race(Attributes(intelligence=2, wisdom=1), [Languages.common])
 
-all_races = [
-    race.title().replace("_", " ")
-    for race in vars().keys()
-    if race[0] != "_" and race[0] != race[0].upper()
-]
+_locals = locals()
+all_races = [v for k, v in _locals.items() if k != "_" and k[0] != k[0].upper()]
