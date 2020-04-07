@@ -9,7 +9,7 @@ from .player_class import Class
 @dataclass(init=False)
 @arithmetic
 class Level:
-    value: int
+    value: int = field(init=False)
     proficiency: int = field(init=False)
 
     def __init__(self, value: Union[int, List[Class]]):

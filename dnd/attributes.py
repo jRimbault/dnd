@@ -25,6 +25,10 @@ class BaseAttributes:
     charisma: Final[int] = 0
 
 
+class Modifiers(BaseAttributes):
+    pass
+
+
 class Attributes(BaseAttributes):
     def __add__(self, other: "Attributes") -> "Attributes":
         return Attributes(
@@ -36,7 +40,7 @@ class Attributes(BaseAttributes):
             charisma=self.charisma + other.charisma,
         )
 
-    def modifiers(self) -> "Modifiers":
+    def modifiers(self) -> Modifiers:
         def modifier(value: int) -> int:
             return math.floor((value - 10) / 2)
 
@@ -51,12 +55,8 @@ class Attributes(BaseAttributes):
 
     @staticmethod
     def random(
-        dices: int = 4, skipped_dices: int = 1, dice_type: int = 6,
+        dices: int = 4, skipped_dices: int = 1, dice_type: int = 6
     ) -> "Attributes":
         return Attributes(
             *(roll_attribute(dices, skipped_dices, dice_type) for _ in range(6))
         )
-
-
-class Modifiers(BaseAttributes):
-    pass

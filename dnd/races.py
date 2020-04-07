@@ -3,97 +3,183 @@ from .languages import Languages
 from .race import Race, RaceName
 
 dragonborn = Race(
-    RaceName.dragonborn,
-    Attributes(strength=2, charisma=1),
-    [Languages.common, Languages.draconic],
+    name=RaceName.dragonborn,
+    bonuses=Attributes(strength=2, charisma=1),
+    languages=[Languages.common, Languages.draconic],
 )
 dwarf = Race(
-    RaceName.dwarf, Attributes(constitution=2), [Languages.common, Languages.dwarvish]
+    name=RaceName.dwarf,
+    bonuses=Attributes(constitution=2),
+    languages=[Languages.common, Languages.dwarvish],
 )
-elf = Race(RaceName.elf, Attributes(dexterity=2), [Languages.common, Languages.elvish])
+elf = Race(
+    name=RaceName.elf,
+    bonuses=Attributes(dexterity=2),
+    languages=[Languages.common, Languages.elvish],
+)
 gnome = Race(
-    RaceName.gnome, Attributes(intelligence=2), [Languages.common, Languages.gnomish]
+    name=RaceName.gnome,
+    bonuses=Attributes(intelligence=2),
+    languages=[Languages.common, Languages.gnomish],
 )
 half_elf = Race(
-    RaceName.half_elf, Attributes(charisma=2), [Languages.common, Languages.elvish]
+    name=RaceName.half_elf,
+    bonuses=Attributes(charisma=2),
+    languages=[Languages.common, Languages.elvish],
 )
 halfling = Race(
-    RaceName.halfling, Attributes(dexterity=2), [Languages.common, Languages.halfling]
+    name=RaceName.halfling,
+    bonuses=Attributes(dexterity=2),
+    languages=[Languages.common, Languages.halfling],
 )
 half_orc = Race(
-    RaceName.half_orc, Attributes(strength=2), [Languages.common, Languages.orc]
+    name=RaceName.half_orc,
+    bonuses=Attributes(strength=2),
+    languages=[Languages.common, Languages.orc],
 )
-human = Race(RaceName.human, Attributes(1, 1, 1, 1, 1, 1), [Languages.common])
+human = Race(
+    name=RaceName.human,
+    bonuses=Attributes(1, 1, 1, 1, 1, 1),
+    languages=[Languages.common],
+)
 tiefling = Race(
-    RaceName.tiefling,
-    Attributes(charisma=2, intelligence=1),
-    [Languages.common, Languages.infernal],
+    name=RaceName.tiefling,
+    bonuses=Attributes(charisma=2, intelligence=1),
+    languages=[Languages.common, Languages.infernal],
 )
 aarakocra = Race(
-    RaceName.aarakocra, Attributes(dexterity=2, wisdom=1), [Languages.common]
+    name=RaceName.aarakocra,
+    bonuses=Attributes(dexterity=2, wisdom=1),
+    languages=[Languages.common],
 )
-genasi = Race(RaceName.genasi, Attributes(constitution=2), [Languages.common])
+genasi = Race(
+    name=RaceName.genasi,
+    bonuses=Attributes(constitution=2),
+    languages=[Languages.common],
+)
 goliath = Race(
-    RaceName.goliath, Attributes(strength=2, constitution=1), [Languages.common]
+    name=RaceName.goliath,
+    bonuses=Attributes(strength=2, constitution=1),
+    languages=[Languages.common],
 )
-aasimar = Race(RaceName.aasimar, Attributes(charisma=2), [Languages.common])
+aasimar = Race(
+    name=RaceName.aasimar, bonuses=Attributes(charisma=2), languages=[Languages.common]
+)
 bugbear = Race(
-    RaceName.bugbear, Attributes(strength=2, dexterity=1), [Languages.common]
+    name=RaceName.bugbear,
+    bonuses=Attributes(strength=2, dexterity=1),
+    languages=[Languages.common],
 )
-firbolg = Race(RaceName.firbolg, Attributes(wisdom=2, strength=1), [Languages.common])
+firbolg = Race(
+    name=RaceName.firbolg,
+    bonuses=Attributes(wisdom=2, strength=1),
+    languages=[Languages.common],
+)
 goblin = Race(
-    RaceName.goblin, Attributes(dexterity=2, constitution=1), [Languages.common]
+    name=RaceName.goblin,
+    bonuses=Attributes(dexterity=2, constitution=1),
+    languages=[Languages.common],
 )
 hobgoblin = Race(
-    RaceName.hobgoblin, Attributes(intelligence=1, constitution=2), [Languages.common]
+    name=RaceName.hobgoblin,
+    bonuses=Attributes(intelligence=1, constitution=2),
+    languages=[Languages.common],
 )
-kenku = Race(RaceName.kenku, Attributes(dexterity=2, wisdom=1), [Languages.common])
-kobold = Race(RaceName.kobold, Attributes(dexterity=2, strength=-2), [Languages.common])
+kenku = Race(
+    name=RaceName.kenku,
+    bonuses=Attributes(dexterity=2, wisdom=1),
+    languages=[Languages.common],
+)
+kobold = Race(
+    name=RaceName.kobold,
+    bonuses=Attributes(dexterity=2, strength=-2),
+    languages=[Languages.common],
+)
 lizardfold = Race(
-    RaceName.lizardfold, Attributes(constitution=2, wisdom=1), [Languages.common]
+    name=RaceName.lizardfold,
+    bonuses=Attributes(constitution=2, wisdom=1),
+    languages=[Languages.common],
 )
 orc = Race(
-    RaceName.orc,
-    Attributes(strength=2, constitution=1, intelligence=-2),
-    [Languages.common],
+    name=RaceName.orc,
+    bonuses=Attributes(strength=2, constitution=1, intelligence=-2),
+    languages=[Languages.common],
 )
-tabaxi = Race(RaceName.tabaxi, Attributes(dexterity=2, charisma=1), [Languages.common])
+tabaxi = Race(
+    name=RaceName.tabaxi,
+    bonuses=Attributes(dexterity=2, charisma=1),
+    languages=[Languages.common],
+)
 triton = Race(
-    RaceName.triton,
-    Attributes(strength=1, constitution=1, charisma=1),
-    [Languages.common],
+    name=RaceName.triton,
+    bonuses=Attributes(strength=1, constitution=1, charisma=1),
+    languages=[Languages.common],
 )
 yuan_ti_pureblood = Race(
-    RaceName.yuan_ti_pureblood,
-    Attributes(charisma=2, intelligence=1),
-    [Languages.common],
+    name=RaceName.yuan_ti_pureblood,
+    bonuses=Attributes(charisma=2, intelligence=1),
+    languages=[Languages.common],
 )
 feral_tiefling = Race(
-    RaceName.feral_tiefling, Attributes(dexterity=2, intelligence=1), [Languages.common]
+    name=RaceName.feral_tiefling,
+    bonuses=Attributes(dexterity=2, intelligence=1),
+    languages=[Languages.common],
 )
-tortle = Race(RaceName.tortle, Attributes(strength=2, wisdom=1), [Languages.common])
-changeling = Race(RaceName.changeling, Attributes(charisma=2), [Languages.common])
+tortle = Race(
+    name=RaceName.tortle,
+    bonuses=Attributes(strength=2, wisdom=1),
+    languages=[Languages.common],
+)
+changeling = Race(
+    name=RaceName.changeling,
+    bonuses=Attributes(charisma=2),
+    languages=[Languages.common],
+)
 kalashtar = Race(
-    RaceName.kalashtar, Attributes(wisdom=2, charisma=1), [Languages.common]
+    name=RaceName.kalashtar,
+    bonuses=Attributes(wisdom=2, charisma=1),
+    languages=[Languages.common],
 )
 eberron_orc = Race(
-    RaceName.eberron_orc, Attributes(strength=2, constitution=1), [Languages.common]
+    name=RaceName.eberron_orc,
+    bonuses=Attributes(strength=2, constitution=1),
+    languages=[Languages.common],
 )
-shifter = Race(RaceName.shifter, Attributes(), [Languages.common])
-warforged = Race(RaceName.warforged, Attributes(constitution=2), [Languages.common])
-gith = Race(RaceName.gith, Attributes(intelligence=1), [Languages.common])
-centaur = Race(RaceName.centaur, Attributes(strength=2, wisdom=1), [Languages.common])
+shifter = Race(
+    name=RaceName.shifter, bonuses=Attributes(), languages=[Languages.common]
+)
+warforged = Race(
+    name=RaceName.warforged,
+    bonuses=Attributes(constitution=2),
+    languages=[Languages.common],
+)
+gith = Race(
+    name=RaceName.gith, bonuses=Attributes(intelligence=1), languages=[Languages.common]
+)
+centaur = Race(
+    name=RaceName.centaur,
+    bonuses=Attributes(strength=2, wisdom=1),
+    languages=[Languages.common],
+)
 loxodon = Race(
-    RaceName.loxodon, Attributes(constitution=2, wisdom=1), [Languages.common]
+    name=RaceName.loxodon,
+    bonuses=Attributes(constitution=2, wisdom=1),
+    languages=[Languages.common],
 )
 minotaur = Race(
-    RaceName.minotaur, Attributes(strength=2, constitution=1), [Languages.common]
+    name=RaceName.minotaur,
+    bonuses=Attributes(strength=2, constitution=1),
+    languages=[Languages.common],
 )
 simic_hybrid = Race(
-    RaceName.simic_hybrid, Attributes(constitution=2), [Languages.common]
+    name=RaceName.simic_hybrid,
+    bonuses=Attributes(constitution=2),
+    languages=[Languages.common],
 )
 vedalken = Race(
-    RaceName.vedalken, Attributes(intelligence=2, wisdom=1), [Languages.common]
+    name=RaceName.vedalken,
+    bonuses=Attributes(intelligence=2, wisdom=1),
+    languages=[Languages.common],
 )
 
 all_races = [v for v in locals().values() if isinstance(v, Race)]

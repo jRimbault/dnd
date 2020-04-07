@@ -6,13 +6,6 @@ from .attributes import Attributes
 from .languages import Languages
 
 
-@dataclass
-class Race:
-    name: "RaceName"
-    bonuses: Final[Attributes] = field(repr=False)
-    languages: Final[List[Languages]] = field(repr=False)
-
-
 class RaceName(str, Enum):
     dragonborn = "dragonborn"
     dwarf = "dwarf"
@@ -51,3 +44,10 @@ class RaceName(str, Enum):
     minotaur = "minotaur"
     simic_hybrid = "simic_hybrid"
     vedalken = "vedalken"
+
+
+@dataclass
+class Race:
+    name: Final[RaceName] = field()
+    bonuses: Final[Attributes] = field(repr=False)
+    languages: Final[List[Languages]] = field(repr=False)
